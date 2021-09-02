@@ -11,21 +11,26 @@ class person{ // คลาส Person เก็บ point , name, setOfQA เป�
 let question = [ // ประกาศ Array ของ Object ใช้เก็บคำถาม หมายเลขคำถาม choice และ คำตอบ
     {title:"10+20",choice:[10,20,30],answer:30,qNumber:1},
     {title:"A->B->?",choice:['D','G','C'],answer:'C',qNumber:2},
-    {title:"My Favorite band",choice:['Three man down','Tilly Bird','Indigo'],answer:'Three Man Down',qNumber:3}
+    {title:"My Favorite band",choice:['Three Man Down','Tilly Bird','Indigo'],answer:'Three Man Down',qNumber:3}
 ]
 
 
-let a =new person("Phunon",[{questionNo:3,answer:'Three Man Down'},{questionNo:1,answer:30}])
+let a =new person("Phunon",[{questionNo:3,answer:1},{questionNo:1,answer:2},{questionNo:2,answer:3}])
 
 function check(player,question){ // function ที่เช็คคำตอบว่าถูกกี่ข้อ โดยรับค่า parameter 2 ค่า คือ เซตของคำถามทั้งหมด และ คนที่ต้องการจะตรวจคำตอบ
     for(let l=0;l<player.setOfQA.length;l++){ // เริ่มจากวนลูปเข้าไปในเซตของคำตอบของผู้เล่น
         let matchQuestion=findQ(player.setOfQA[l].questionNo) // หาว่าข้อที่ผู้เล่นตอบมาตรงกับคำถามข้อไหน ป้องกันการใส่คำตอบมาแบบไม่เรียงข้อ
-        if(player.setOfQA[l].answer==matchQuestion.answer){ // พอได้เบอร์คำถามแล้ว ก็นำไปตรวจสอบกับคำตอบของคำถามเบอร์นั้นๆ ถ้าถูกก็ได้ 1คะแนน
+        if(matchQuestion.choice[(player.setOfQA[l].answer)-1]==matchQuestion.answer){ // พอได้เบอร์คำถามแล้ว ก็นำไปตรวจสอบโดยถ้าเบอร์ช้อยที่ผู้เล่นเลือกตรงกับคำตอบของผู้เล่น ผู้เล่นจะได้ 1คะแนน
             player.point++
-            console.log(`Question Number ${player.setOfQA[l].questionNo} is corrected!`)
+            console.log(`Question ${matchQuestion.qNumber}: ${matchQuestion.title}`)
+            console.log(`Choice: \n1.${matchQuestion.choice[0]}  \n2.${matchQuestion.choice[1]}  \n3.${matchQuestion.choice[2]}`)
+            console.log(`Your Answer ${player.setOfQA[l].answer} --> ${matchQuestion.choice[(player.setOfQA[l].answer)-1]} is corrected!\n`)
         }
         else{ // ถ้าผิดหรือเบอร์คำถามที่ส่งเข้ามาไม่มีอยู่ ก็จะไม่เกิดอะไร
-            console.log(`Question Number ${player.setOfQA[l].questionNo} is incorrected!`)
+
+            console.log(`Question ${matchQuestion.qNumber}: ${matchQuestion.title}`)
+            console.log(`Choice: \n1.${matchQuestion.choice[0]}  \n2.${matchQuestion.choice[1]}  \n3.${matchQuestion.choice[2]}`)
+            console.log(`Your Answer ${player.setOfQA[l].answer} --> ${matchQuestion.choice[(player.setOfQA[l].answer)-1]} is incorrected!\n`)
         }
     }
 }
@@ -39,4 +44,4 @@ function findQ(qNumber){ // เป็น Function ที่รับหมาย
     return null
 }
 check(a,question)
-console.log(a.point)
+console.log("--------------------\nYour Point "+a.point)
