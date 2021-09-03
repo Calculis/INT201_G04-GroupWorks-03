@@ -51,9 +51,32 @@ let person1 =new person("Warisara",
     [{questionNo:2,answer:1},
     {questionNo:3,answer:1},
     {questionNo:1,answer:2}])
+let person3 =new person("Prin",
+[{questionNo:2,answer:1},
+    {questionNo:5,answer:2},
+    {questionNo:4,answer:1},
+    {questionNo:3,answer:3},
+    {questionNo:1,answer:3}])
+ let person4 =new person("Teeradet",
+
+    [{questionNo:5,answer:2},
+    
+    {questionNo:1,answer:1},
+    
+    {questionNo:4,answer:1},
+    
+    {questionNo:3,answer:2},
+    
+    {questionNo:2,answer:3},
+    
+    {questionNo:2,answer:1}]  )
 
 check(person1)
-console.log("--------------------\nYour Point "+person1.point)
+console.log("--------------------\n " +person1.name+"'s Point :"+person1.point)
 check(person2)
-console.log("--------------------\nYour Point "+person2.point)
+console.log("--------------------\n " +person2.name+"'s Point :"+person2.point)
+check(person3)
+console.log("--------------------\n " +person3.name+"'s Point :"+person3.point)
+check(person4)
+console.log("--------------------\n " +person4.name+"'s Point :"+person4.point)
 
