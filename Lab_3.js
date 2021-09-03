@@ -2,8 +2,6 @@ class person{ // คลาส Person เก็บ point , name, setOfQA เป�
     constructor(name,setOfQA){
         this.point=0
         this.name=name
-        // this.setOfA=setOfA
-        // this.setOfQ=setOfQ
         this.setOfQA=setOfQA
     }
 }
@@ -15,8 +13,6 @@ let question = [ // ประกาศ Array ของ Object ใช้เก็
     {title:"Asia is bigger than Europe",choice:['Yes','No'],answer:'Yes',qNumber:4},
     {title:"How many legs does a cat have?",choice:['Two','Four','six'],answer:'Four',qNumber:5}
 ]
-
-
 
 
 function check(player){ // function ที่เช็คคำตอบว่าถูกกี่ข้อ โดยรับค่า parameter 2 ค่า คือ เซตของคำถามทั้งหมด และ คนที่ต้องการจะตรวจคำตอบ
@@ -55,6 +51,7 @@ let person1 =new person("Warisara",
     [{questionNo:2,answer:1},
     {questionNo:3,answer:1},
     {questionNo:1,answer:2}])
+
 check(person1)
 console.log("--------------------\nYour Point "+person1.point)
 check(person2)
