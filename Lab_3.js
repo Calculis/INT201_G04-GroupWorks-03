@@ -70,6 +70,12 @@ let person3 =new person("Prin",
     {questionNo:2,answer:3},
     
     {questionNo:2,answer:1}]  )
+    let person5=new person("Montira",
+    [{questionNo:1,answer:2},
+        {questionNo:2,answer:3},
+        {questionNo:3,answer:1},
+        {questionNo:4,answer:2},
+        {questionNo:5,answer:1}])
 
 check(person1)
 console.log("--------------------\n " +person1.name+"'s Point :"+person1.point)
@@ -79,4 +85,6 @@ check(person3)
 console.log("--------------------\n " +person3.name+"'s Point :"+person3.point)
 check(person4)
 console.log("--------------------\n " +person4.name+"'s Point :"+person4.point)
+check(person5)
+console.log("--------------------\n " +person5.name+"'s Point :"+person4.point)
 
