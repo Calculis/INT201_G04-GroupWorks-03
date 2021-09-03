@@ -86,5 +86,5 @@ console.log("--------------------\n " +person3.name+"'s Point :"+person3.point)
 check(person4)
 console.log("--------------------\n " +person4.name+"'s Point :"+person4.point)
 check(person5)
-console.log("--------------------\n " +person5.name+"'s Point :"+person4.point)
+console.log("--------------------\n " +person5.name+"'s Point :"+person5.point)
 
