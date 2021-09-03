@@ -11,13 +11,15 @@ class person{ // คลาส Person เก็บ point , name, setOfQA เป�
 let question = [ // ประกาศ Array ของ Object ใช้เก็บคำถาม หมายเลขคำถาม choice และ คำตอบ
     {title:"10+20",choice:[10,20,30],answer:30,qNumber:1},
     {title:"A->B->?",choice:['D','G','C'],answer:'C',qNumber:2},
-    {title:"My Favorite band",choice:['Three Man Down','Tilly Bird','Indigo'],answer:'Three Man Down',qNumber:3}
+    {title:"What is My Favorite band",choice:['Three Man Down','Tilly Bird','Indigo'],answer:'Three Man Down',qNumber:3},
+    {title:"Asia is bigger than Europe",choice:['Yes','No'],answer:'Yes',qNumber:4},
+    {title:"How many legs does a cat have?",choice:['Two','Four','six'],answer:'Four',qNumber:5}
 ]
 
 
-let a =new person("Phunon",[{questionNo:3,answer:1},{questionNo:1,answer:2},{questionNo:2,answer:3}])
 
-function check(player,question){ // function ที่เช็คคำตอบว่าถูกกี่ข้อ โดยรับค่า parameter 2 ค่า คือ เซตของคำถามทั้งหมด และ คนที่ต้องการจะตรวจคำตอบ
+
+function check(player){ // function ที่เช็คคำตอบว่าถูกกี่ข้อ โดยรับค่า parameter 2 ค่า คือ เซตของคำถามทั้งหมด และ คนที่ต้องการจะตรวจคำตอบ
     for(let l=0;l<player.setOfQA.length;l++){ // เริ่มจากวนลูปเข้าไปในเซตของคำตอบของผู้เล่น
         let matchQuestion=findQ(player.setOfQA[l].questionNo) // หาว่าข้อที่ผู้เล่นตอบมาตรงกับคำถามข้อไหน ป้องกันการใส่คำตอบมาแบบไม่เรียงข้อ
         if(matchQuestion.choice[(player.setOfQA[l].answer)-1]==matchQuestion.answer){ // พอได้เบอร์คำถามแล้ว ก็นำไปตรวจสอบโดยถ้าเบอร์ช้อยที่ผู้เล่นเลือกตรงกับคำตอบของผู้เล่น ผู้เล่นจะได้ 1คะแนน
@@ -43,5 +45,18 @@ function findQ(qNumber){ // เป็น Function ที่รับหมาย
     }
     return null
 }
-check(a,question)
-console.log("--------------------\nYour Point "+a.point)
+
+let person2 =new person("Phunon",
+[{questionNo:3,answer:1},
+    {questionNo:1,answer:2},
+    {questionNo:2,answer:3},
+    {questionNo:4,answer:2}])
+let person1 =new person("Warisara",
+    [{questionNo:2,answer:1},
+    {questionNo:3,answer:1},
+    {questionNo:1,answer:2}])
+check(person1)
+console.log("--------------------\nYour Point "+person1.point)
+check(person2)
+console.log("--------------------\nYour Point "+person2.point)
+
